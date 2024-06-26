@@ -12,7 +12,13 @@ const io = socketIo(server);
 
 const PORT = process.env.PORT || 4000;
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://komet-test-frontend.com',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+};
+
+app.use(cors(corsOptions));
 io.on('connection', async (socket) => {
     console.log(colors.yellow('Backend connecting...'));
     console.log(colors.green('Backend connected...'));
