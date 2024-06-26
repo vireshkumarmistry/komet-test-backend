@@ -22,7 +22,7 @@ io.on('connection', async (socket) => {
 });
 
 app.get('/get-trade-details', async (req, res) => {
-    const connectionRes = await axios.get('https://3pmbgqbzpbuvr2gfkstiinblsm0pvpdh.lambda-url.ap-south-1.on.aws');
+    const connectionRes = await axios.get(process.env.LAMBDA_FUNCTION_URL);
     if (connectionRes.status === 200) {
         io.emit('event', connectionRes.data);
         console.log(colors.red.bgYellow("Successfully Replicated Master Trade..."))
