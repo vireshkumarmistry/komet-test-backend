@@ -13,7 +13,7 @@ const io = socketIo(server);
 const PORT = process.env.PORT || 4000;
 
 const corsOptions = {
-    origin: 'https://komet-test-frontend.com',
+    origin: 'http://localhost:3000',
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 };
